@@ -8,5 +8,3 @@ will try to update on time
 - Print functions not included as coursemology read directly from you code
 - Do add in the print function to run the code yourself on IDLE
 
-
-note to self: march holi part 2 not done

@@ -3,25 +3,27 @@
 #and the code is hidden
 #Enter your code below to calculate the suffix for the vehicle registration number
 
-idk=[]
-counter=0
+arr=[]
+no_alpha=0
 for i in vehicle_reg_num:
     if i.isalpha():
-        if counter==2:
-            idk[0]=idk[1]
-            idk[1]=(ord(i)-64)
-        else:
-            idk.append(ord(i)-64)
-            counter+=1
-    elif i.isdigit:
-        if counter==1:
-            idk[1]=idk[0]
-            idk[0]=0
-            counter+=1
-        idk.append(int(i))
+        arr.append(ord(i)-64)
+        no_alpha+=1
+    else:
+        break
+if no_alpha==1:
+    arr.append(arr[0])
+    arr[0]=0
+if no_alpha==3:
+    arr=arr[1:3]
+no_num=len(vehicle_reg_num)-no_alpha
+for i in range(4-no_num):
+    arr.append(0)
+for i in range(no_num):
+    arr.append(int(vehicle_reg_num[no_alpha+i]))
 total=0
-Arr=[9,4,5,4,3,2]
+fixed_num=[9,4,5,4,3,2]
 for i in range(6):
-    total+=idk[i]*Arr[i]
-Array=["A","Z","Y","X","U","T","S","R","P","M","L","K","J","H","G","E","D","C","B"]
-suffix=Array[total%19]
+    total+=arr[i]*fixed_num[i]
+corr=["A","Z","Y","X","U","T","S","R","P","M","L","K","J","H","G","E","D","C","B"]
+suffix=corr[total%19]
