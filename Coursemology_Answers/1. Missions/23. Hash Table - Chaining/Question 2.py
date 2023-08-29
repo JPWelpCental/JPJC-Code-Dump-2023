@@ -19,11 +19,11 @@ class HashTable:
     def Hash(self, SongID):
         #sums the ASCII value of each character in SongID
         #returns the remainder when the sum is divided by the size of Array
-        
         sum = 0
         for i in SongID:
             sum += ord(i)
         return sum%self.Size
+    
     def Display(self):
         #displays the content of Array neatly
         print("INDEX\tSONG ID\t\tSONG TITLE")
@@ -43,6 +43,7 @@ class HashTable:
             while temp.next != None:
                 temp = temp.next
             temp.next = SongRecord(SongID,SongTitle)
+
     def Remove(self, SongID):
         #deletes the SongRecord with SongID from Array
         index = self.Hash(SongID)
@@ -58,7 +59,6 @@ class HashTable:
                         temp.next = temp.next.next
                         return
                     temp = temp.next
-        
         
     def Search(self, SongID):
         #uses hash table search to find the SongRecord with SongID in Array
